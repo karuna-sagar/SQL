@@ -25,11 +25,13 @@ select title,stock_quantity,case when stock_quantity between 0 and 50 then '*' w
 
 select 10!= 10;
 select 15 > 10 and 99-5 <=94;
-select 1 in (5,3) or 9 between 8 and 10;
+select 1 in (1,3) or 9 between 8 and 10;
+select 1 in (1,3) ;
 select title from books where released_year <1980;
 select * from books where author_lname='eggers' or author_lname ='chabon';
 select * from books where author_lname='lahiri' and released_year>=2000;
 select * from books where pages between 100 and 200;
-select * from books where author_lname='c%' or author_lname = 's%';
-select * from books;
+select * from books where author_lname like 'c%' or author_lname  like 's%';
+select title,author_lname,case when title like '%stories%' then 'Short Stories' when title like '%just kids%' or title like '%A Heartbreaking work%' then 'memoir' else 'novel'  end as type from books;
+select author_fname,author_lname,concat(count(*),' ','books') as count from books group by author_fname,author_lname
 
