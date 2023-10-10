@@ -44,3 +44,4 @@ select first_name,last_name,sum(amount) as total  from customers join orders on 
 select first_name,last_name order_date,amount from customers left join orders on orders.customer_id = customers.id;	
 select first_name,last_name,sum(amount) from customers left join orders on orders.customer_id = customers.id group by first_name,last_name;
 select first_name,last_name,ifnull(sum(amount),0) from customers left join orders on orders.customer_id = customers.id group by first_name,last_name;
+select first_name,last_name,order_date,amount from customers right join orders on orders.customer_id = customers.id;	
