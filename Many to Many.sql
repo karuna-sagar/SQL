@@ -69,3 +69,5 @@ select * from reviewers;
 --  CHALLENGE 1
 select title,rating from series join reviews on series.id = reviews.series_id limit 15;
 
+--  CHALLENGE 2
+select title,round(avg(rating),2) as avg_rating from series join reviews on series.id = reviews.series_id group by title order by avg_rating;
