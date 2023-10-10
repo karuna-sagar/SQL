@@ -39,3 +39,6 @@ select * from orders where customer_id = (select id from customers where last_na
  -- INNER JOIN 
  select * from customers join  orders where    orders.customer_id = customers.id;
 select * from orders;
+select first_name,last_name,sum(amount) as total  from customers join orders on customers.id = orders.customer_id group by first_name,last_name order by total;
+-- LEFT JOIN 
+select first_name,last_name order_date,amount from customers left join orders on orders.customer_id = customers.id;
