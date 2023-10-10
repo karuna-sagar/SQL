@@ -78,3 +78,6 @@ select first_name,last_name,rating from reviewers join reviews on reviewers.id =
 --  CHALLENGE 4
 select title as UNREVIEWED_SERIES from series left join reviews on reviews.series_id = series.id  where rating is null;
 select title as UNREVIEWED_SERIES from reviews right join series on reviews.series_id = series.id  where rating is null;
+
+--  CHALLENGE 5
+select genre,avg(rating) from series join reviews on reviews.series_id = series.id group by genre;
