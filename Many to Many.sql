@@ -73,4 +73,8 @@ select title,rating from series join reviews on series.id = reviews.series_id li
 select title,round(avg(rating),2) as avg_rating from series join reviews on series.id = reviews.series_id group by title order by avg_rating;
 
 -- CHALLLENGE 3
-select first_name,last_name,rating from reviewers cross join reviews on reviewers.id = reviews.reviewer_id limit 20;
+select first_name,last_name,rating from reviewers join reviews on reviewers.id = reviews.reviewer_id limit 20;
+
+--  CHALLENGE 4
+select title as UNREVIEWED_SERIES from series left join reviews on reviews.series_id = series.id  where rating is null;
+select title as UNREVIEWED_SERIES from reviews right join series on reviews.series_id = series.id  where rating is null;
