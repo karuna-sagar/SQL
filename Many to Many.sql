@@ -81,3 +81,9 @@ select title as UNREVIEWED_SERIES from reviews right join series on reviews.seri
 
 --  CHALLENGE 5
 select genre,avg(rating) from series join reviews on reviews.series_id = series.id group by genre;
+
+--  CHALLENGE 6
+select first_name,last_name,count(RATING) as COUNT,IFNULL(min(rating),0) as MIN,IFNULL(max(rating),0) as MAX,IFNULL(avg(rating),0) as AVGERAGE ,case when count(RATING)  >0 then 'ACTIVE' else 'INACTIVE' end as statis from reviewers left join  reviews on reviews.reviewer_id = reviewers.id group by first_name,last_name;
+select first_name,last_name,count(RATING) as COUNT,IFNULL(min(rating),0) as MIN,IFNULL(max(rating),0) as MAX,IFNULL(avg(rating),0) as AVGERAGE ,if(count(RATING)  >0 ,'ACTIVE' , 'INACTIVE') as statis from reviewers left join  reviews on reviews.reviewer_id = reviewers.id group by first_name,last_name;
+
+--  CHALLENGE 7
