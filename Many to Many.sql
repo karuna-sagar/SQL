@@ -65,3 +65,7 @@ INSERT INTO reviews(series_id, reviewer_id, rating) VALUES
 select * from series;
 select * from reviews;
 select * from reviewers;
+
+--  CHALLENGE 1
+select title,rating from series join reviews on series.id = reviews.series_id limit 15;
+
