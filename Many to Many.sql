@@ -20,3 +20,4 @@ reviewer_id int,
 foreign key(series_id) references series(id),
 foreign key(reviewer_id) references reviewers(id)
 );
+
