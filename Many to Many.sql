@@ -87,3 +87,4 @@ select first_name,last_name,count(RATING) as COUNT,IFNULL(min(rating),0) as MIN,
 select first_name,last_name,count(RATING) as COUNT,IFNULL(min(rating),0) as MIN,IFNULL(max(rating),0) as MAX,IFNULL(avg(rating),0) as AVGERAGE ,if(count(RATING)  >0 ,'ACTIVE' , 'INACTIVE') as statis from reviewers left join  reviews on reviews.reviewer_id = reviewers.id group by first_name,last_name;
 
 --  CHALLENGE 7
+select title,rating,concat(first_name,' ',last_name) as reviewrs from reviews join series on series.id = reviews.series_id join reviewers on reviews.reviewer_id = reviewers.id;
