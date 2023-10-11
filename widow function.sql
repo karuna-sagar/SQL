@@ -26,3 +26,13 @@ INSERT INTO employees (department, salary) VALUES
 ('customer service', 31000),
 ('customer service', 56000),
 ('customer service', 55000);
+
+select * from employees;
+select avg(salary) from employees;
+select department,avg(salary) from employees group by department;
+select avg(salary) over() from employees;
+select emp_no,department,salary,avg(salary) over(),min(salary) over(),max(salary) over() from employees;
+select emp_no,department,salary,avg(salary) over(partition by department) as dept_avg from employees;
+select emp_no,department,salary,avg(salary) over(partition by department) as dept_avg ,avg(salary) over()  as comp_salary from employees;
+select emp_no,department,salary,count(*) over(partition by department) as count from employees;
+select emp_no,department,salary,sum(salary) over(partition by department) as dept_pay_roll,sum(salary) over() as total_payroll from employees;
