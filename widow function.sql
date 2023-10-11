@@ -57,3 +57,10 @@ dense_rank() over(order by salary desc) as overall_dense_rank,
 row_number() over(order by salary desc) as overall_number
 from employees order by overall_rank;
 
+select emp_no,department,salary,
+first_value(emp_no) over(partition by department order by salary desc) as highest_paid_dept,
+first_value(emp_no) over(order by salary desc) as highest_paid_overall
+from employees ;
+
+
+
