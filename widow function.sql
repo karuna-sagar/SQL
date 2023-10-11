@@ -43,3 +43,17 @@ select emp_no,department,salary,min(salary) over(partition by department) as tot
 select emp_no,department,salary,rank() over(order by salary desc) as overall_salary_rank from employees;
 select emp_no,department,salary,rank() over(partition by department order by salary desc) as dept_salary_rank,rank() over(order by salary desc) as overall_salary_rank from employees;
 select emp_no,department,salary,rank() over(partition by department order by salary desc) as dept_salary_rank,rank() over(order by salary desc) as overall_salary_rank from employees order by department;
+
+select emp_no,department,salary,row_number() over(partition by department order by salary desc) as dept_row_number,
+rank() over(partition by department order by salary desc) as dept_salary_rank,
+rank() over(order by salary desc) as overall_salary_rank from employees order by department;
+
+
+select emp_no,department,salary,
+row_number() over(partition by department order by salary desc) as dept_row_number,
+rank() over(partition by department order by salary desc) as dept_salary_rank,
+rank() over(order by salary desc) as overall_rank,
+dense_rank() over(order by salary desc) as overall_dense_rank,
+row_number() over(order by salary desc) as overall_number
+from employees order by overall_rank;
+
