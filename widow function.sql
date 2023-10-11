@@ -62,5 +62,14 @@ first_value(emp_no) over(partition by department order by salary desc) as highes
 first_value(emp_no) over(order by salary desc) as highest_paid_overall
 from employees ;
 
+select emp_no,department,salary,
+salary- lag(salary) over(order by salary desc) as salary_diff
+from employees ;
 
+select emp_no,department,salary,
+salary- lead(salary) over(order by salary desc) as salary_diff
+from employees ;
 
+select emp_no,department,salary,
+salary- lag(salary) over(partition by department order by salary desc) as salary_diff
+from employees;
