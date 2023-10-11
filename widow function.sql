@@ -39,3 +39,7 @@ select emp_no,department,salary,sum(salary) over(partition by department) as dep
 
 select emp_no,department,salary,sum(salary) over(partition by department order by salary desc) as rolling_salary ,sum(salary) over(partition by department) as total_dept_salary from employees;
 select emp_no,department,salary,min(salary) over(partition by department) as total_dept_salary from employees;
+
+select emp_no,department,salary,rank() over(order by salary desc) as overall_salary_rank from employees;
+select emp_no,department,salary,rank() over(partition by department order by salary desc) as dept_salary_rank,rank() over(order by salary desc) as overall_salary_rank from employees;
+select emp_no,department,salary,rank() over(partition by department order by salary desc) as dept_salary_rank,rank() over(order by salary desc) as overall_salary_rank from employees order by department;
