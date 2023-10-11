@@ -36,3 +36,6 @@ select emp_no,department,salary,avg(salary) over(partition by department) as dep
 select emp_no,department,salary,avg(salary) over(partition by department) as dept_avg ,avg(salary) over()  as comp_salary from employees;
 select emp_no,department,salary,count(*) over(partition by department) as count from employees;
 select emp_no,department,salary,sum(salary) over(partition by department) as dept_pay_roll,sum(salary) over() as total_payroll from employees;
+
+select emp_no,department,salary,sum(salary) over(partition by department order by salary desc) as rolling_salary ,sum(salary) over(partition by department) as total_dept_salary from employees;
+select emp_no,department,salary,min(salary) over(partition by department) as total_dept_salary from employees;
