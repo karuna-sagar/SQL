@@ -34,12 +34,19 @@ foreign key(photo_id) references photos(id),
 primary key(user_id,photo_id)
 );
 
-
+create table follows(
+follower_id  integer not null,
+followee_id integer not null,
+created_at timestamp default now(),
+foreign key(follower_id) references users(id),
+foreign key(followee_id) references users(id),
+primary key(follower_id,followee_id)
+);
 
 
 
 
 
 show tables ;
-desc likes;
+desc follows;
 drop table comments;
