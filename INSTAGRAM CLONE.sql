@@ -24,6 +24,16 @@ created_at timestamp default now(),
 foreign key(user_id) references users(id),
 foreign key(photo_id) references photos(id));
 
+create table likes(
+
+user_id integer not null,
+photo_id integer not null,
+created_at timestamp default now(),
+foreign key(user_id) references users(id),
+foreign key(photo_id) references photos(id),
+primary key(user_id,photo_id)
+);
+
 
 
 
@@ -31,5 +41,5 @@ foreign key(photo_id) references photos(id));
 
 
 show tables ;
-desc comments;
+desc likes;
 drop table comments;
