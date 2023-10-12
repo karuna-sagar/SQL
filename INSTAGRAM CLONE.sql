@@ -49,8 +49,13 @@ tag_name varchar(255) unique,
 created_at timestamp default now()
 );
 
-
-
+create table photo_tag(
+photo_id integer not null,
+tag_id integer not null,
+foreign key(tag_id) references tags(id),
+foreign key(photo_id) references photos(id),
+primary key(photo_id,tag_id)
+);
 
 show tables ;
 desc follows;
