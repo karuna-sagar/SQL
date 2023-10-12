@@ -43,6 +43,11 @@ foreign key(followee_id) references users(id),
 primary key(follower_id,followee_id)
 );
 
+create table tags(
+id int primary key auto_increment,
+tag_name varchar(255) unique,
+created_at timestamp default now()
+);
 
 
 
