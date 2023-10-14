@@ -78,4 +78,8 @@ SELECT
 FROM users
 GROUP BY day
 order by total desc 
-limit 2
+limit 2;
+
+--  CHALLENGE 3
+
+select username from users left join photos on  users.id = photos.user_id where image_url is null
