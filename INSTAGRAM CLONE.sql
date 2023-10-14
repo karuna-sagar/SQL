@@ -99,3 +99,7 @@ inner join users
 GROUP BY photos.id
 order by total desc
 limit 1;
+
+--  CHALLENGE 5
+
+select ((select count(*) from photos)/ (select count(*) from users )) as average_per_person
