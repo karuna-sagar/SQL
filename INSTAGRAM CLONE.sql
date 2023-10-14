@@ -82,4 +82,20 @@ limit 2;
 
 --  CHALLENGE 3
 
-select username from users left join photos on  users.id = photos.user_id where image_url is null
+select username from users left join photos on  users.id = photos.user_id where image_url is null;
+
+--  CHALLENGE 4
+
+SELECT 
+	username,
+    photos.id,
+    photos.image_url,
+    count(*) as total
+FROM photos
+INNER JOIN likes
+    ON likes.photo_id = photos.id
+inner join users
+	on users.id = photos.user_id
+GROUP BY photos.id
+order by total desc
+limit 1;
