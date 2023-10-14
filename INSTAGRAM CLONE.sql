@@ -102,4 +102,7 @@ limit 1;
 
 --  CHALLENGE 5
 
-select ((select count(*) from photos)/ (select count(*) from users )) as average_per_person
+select ((select count(*) from photos)/ (select count(*) from users )) as average_per_person;
+
+--  CHALLENGE 6
+select tag_name,tag_id,count(*) as total  from photo_tags inner join tags on tags.id = photo_tags.tag_id group by tag_id order by total desc limit 5;
