@@ -106,3 +106,7 @@ select ((select count(*) from photos)/ (select count(*) from users )) as average
 
 --  CHALLENGE 6
 select tag_name,tag_id,count(*) as total  from photo_tags inner join tags on tags.id = photo_tags.tag_id group by tag_id order by total desc limit 5;
+
+-- CHALLENGE 8
+select * from photos;
+select username,user_id,count(*) as total from likes JOIN users on likes.user_id = users.id  group by user_id having total = (select count(*) from photos) ;
